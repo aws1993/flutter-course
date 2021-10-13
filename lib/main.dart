@@ -1,5 +1,6 @@
 import 'package:contacts_01/data/local_contact.dart';
 import 'package:contacts_01/pages/home.dart';
+import 'package:contacts_01/pages/profile.dart';
 import 'package:contacts_01/pages/recent.dart';
 import 'package:contacts_01/pages/search.dart';
 import 'package:flutter/cupertino.dart';
@@ -36,9 +37,10 @@ class _MyHomePageState extends State<MyHomePage> {
 
   _MyHomePageState() {
     _pages = [
-      HomeScreen(),
+       HomeScreen(),
       Recent(),
-      Search(),
+      Profile(),
+      // Search(),
 
     ];
   }
@@ -59,7 +61,7 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Icon(Icons.camera_alt ,color: Colors.black,),
-            Text('Instagram',style: TextStyle(color: Colors.black),),
+            Text('Instagram',style: TextStyle(fontFamily: 'Tajawal' ,color: Colors.black),),
             Icon(Icons.send,color: Colors.black,)
           ],
         ),
