@@ -110,7 +110,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
             ),
             Padding(
-              padding: const EdgeInsets.all(20),
+              padding: const EdgeInsets.only(top: 15,left: 20 ,right: 20),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -120,8 +120,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 ],
               ),
             ),
-            buildContainer(),
-            buildContainer(),
+            buildContainer(imgUrl: 'images/car1.png' , name: 'Red Tesla' ,rate: '4.3' ,price: '179',deal: '18'),
+            buildContainer(imgUrl: 'images/car2.png' , name: 'Black Tesla' ,rate: '4.1' ,price: '199',deal: '11'),
 
 
 
@@ -131,7 +131,7 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  Container buildContainer() {
+  Container buildContainer({ String? name ,String? imgUrl ,String? rate ,String? price ,String? deal}) {
     return Container(
       child: Stack(
         children: [
@@ -140,7 +140,7 @@ class _MyHomePageState extends State<MyHomePage> {
             child: ClipPath(
               clipper: WaveClipper(),
               child: Container(
-                height: 300,
+                height: 230,
                 width: 350,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(50),
@@ -168,33 +168,33 @@ class _MyHomePageState extends State<MyHomePage> {
                                 child: Row(
                                   children: [
                                     Icon(Icons.star ,color: Colors.white, size: 20,),
-                                    Text('4.3', style: TextStyle(color: Colors.white ,fontWeight: FontWeight.bold),)
+                                    Text(rate.toString(), style: TextStyle(color: Colors.white ,fontWeight: FontWeight.bold),)
 
                                   ],
                                 ),
                               ),
                             ),
                           ),
-                          Text('10 Deals' ,style: TextStyle(color: Colors.green ,fontWeight: FontWeight.bold ,fontSize: 16),)
+                          Text('$deal Deals' ,style: TextStyle(color: Colors.green ,fontWeight: FontWeight.bold ,fontSize: 16),)
 
                         ],),
 
                       Padding(
-                        padding: EdgeInsets.only(top: 20 ,left: 40),
+                        padding: EdgeInsets.only(left: 40),
                         child: Container(
 
                           width: 200,
-                          height: 150,
+                          height: 100,
                           decoration: BoxDecoration(
                               image: DecorationImage(
-                                  image: AssetImage('images/car1.png' ),
+                                  image: AssetImage(imgUrl.toString() ),
                                   fit: BoxFit.fill
                               )
                           ),
                         ),
                       ),
-                      Text('Red Tesla' ,style: TextStyle(color: Colors.black ,fontSize: 20 ,fontWeight: FontWeight.bold),),
-                      Text('From \$197 / dat' ,style: TextStyle(color: Colors.grey),)
+                      Text(name.toString() ,style: TextStyle(color: Colors.black ,fontSize: 20 ,fontWeight: FontWeight.bold),),
+                      Text('From \$$price/ dat' ,style: TextStyle(color: Colors.grey),)
 
                     ],
                   ),
@@ -204,12 +204,12 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ),
           Positioned(
-            bottom: 30,
-            right: 25,
+            bottom: 27,
+            right: 22,
             child: GestureDetector(
               onTap: ()=>Navigator.of(context).push(MaterialPageRoute(builder: (context)=>InfoCar())),
               child: Container(
-                height: 50,
+                height: 55,
                 width: 60,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
