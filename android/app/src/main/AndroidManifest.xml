@@ -2,7 +2,7 @@
     package="com.example.contacts_01">
    <application
         android:label="contacts_01"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/launcher_icon">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
